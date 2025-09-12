@@ -13,7 +13,7 @@ const ContactForm: React.FC = () => {
   }
 
   return (
-    <section className="max-w-7xl mx-auto pt-16 pb-24 px-6 mx-[10px]">
+    <section className="max-w-7xl pt-16 pb-24 px-6 mx-[40px]">
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         <div className="space-y-8">
           <div>
