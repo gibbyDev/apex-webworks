@@ -22,9 +22,8 @@ jobs:
         run: npm ci
 
       - name: Build static site
-        run: |
+        run:
           npm run build
-          npm run export  # <-- THIS creates the ./out folder
 
       - name: Deploy to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
