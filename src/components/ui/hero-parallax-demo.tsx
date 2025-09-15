@@ -15,7 +15,7 @@ export const HeroParallax = ({
 }: {
   products: {
     title: string;
-    link: string;
+    link?: string;
     thumbnail: string;
   }[];
 }) => {
