@@ -150,7 +150,7 @@ export function TimelineDemo() {
     <div className="relative w-full overflow-clip">
       <Timeline data={data} />
       {data.map((item, idx) => (
-        <div key={item.id ?? idx}>
+        <div key={idx}>
           {/* ...timeline entry rendering... */}
         </div>
       ))}
