@@ -13,12 +13,12 @@ const ContactForm: React.FC = () => {
   }
 
   return (
-    <section className="max-w-7xl pt-16 pb-24 px-6 mx-[40px]">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="max-w-7xl pt-16 pb-24 px-4 mx-0 sm:mx-[40px]">
+      <div className="grid lg:grid-cols-2 lg:gap-16 items-center">
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl font-bold text-white mb-6 text-balance">Let's Start a Conversation</h2>
-            <p className="text-xl text-slate-300 leading-relaxed mb-8">
+            <p className="text-xl text-black leading-relaxed mb-8">
               Ready to discuss your project? Our team of experts is here to help you achieve your business objectives
               with tailored solutions and strategic insights.
             </p>
@@ -77,7 +77,7 @@ const ContactForm: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 shadow-2xl">
+        <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6 sm:p-8 shadow-2xl w-full">
           <div className="mb-8">
             <h3 className="text-2xl font-semibold text-white mb-3">Get in Touch</h3>
             <p className="text-slate-400">
