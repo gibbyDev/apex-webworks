@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
+import { motion } from "framer-motion"
 
 const ContactForm: React.FC = () => {
   const [submitted, setSubmitted] = useState(false)
@@ -15,7 +16,14 @@ const ContactForm: React.FC = () => {
   return (
     <section className="max-w-7xl pt-16 pb-24 px-4 mx-0 sm:mx-[40px]">
       <div className="grid lg:grid-cols-2 lg:gap-16 items-center">
-        <div className="space-y-8">
+        {/* Left content slides/fades in from the left */}
+        <motion.div
+          className="space-y-8"
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <div>
             <h2 className="text-4xl font-bold text-white mb-6 text-balance">Let's Start a Conversation</h2>
             <p className="text-xl text-black leading-relaxed mb-8">
@@ -75,9 +83,16 @@ const ContactForm: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6 sm:p-8 shadow-2xl w-full">
+        {/* Form container slides/fades in from the right */}
+        <motion.div
+          className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6 sm:p-8 shadow-2xl w-full"
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <div className="mb-8">
             <h3 className="text-2xl font-semibold text-white mb-3">Get in Touch</h3>
             <p className="text-slate-400">
@@ -185,7 +200,7 @@ const ContactForm: React.FC = () => {
               </p>
             </form>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
