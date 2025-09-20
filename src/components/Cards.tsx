@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 const redGlow = "rgba(239, 68, 68, 0.6)"; // Tailwind red-500
 
 export default function Cards() {
-  // Move cardVariants inside the component
+  // Use a valid easing array for Framer Motion
   const cardVariants = {
     hidden: { opacity: 0, y: 60 },
     visible: (i: number) => ({
@@ -15,7 +15,7 @@ export default function Cards() {
       transition: {
         delay: i * 0.18,
         duration: 0.7,
-        ease: "easeOut",
+        ease: [0.42, 0, 1, 1], // cubic-bezier for easeOut
       },
     }),
   };
