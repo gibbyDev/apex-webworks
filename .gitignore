@@ -41,5 +41,5 @@ yarn-error.log*
 next-env.d.ts
 
 # temporary
-src/app/loader/
-src/components/ui/loader.tsx
+# src/app/loader/
+# src/components/ui/loader.tsx
