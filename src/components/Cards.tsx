@@ -21,8 +21,7 @@ export default function Cards() {
   };
 
   return (
-    <div>
-      <div className="min-h-screen p-8 overflow-auto">
+      <div className="max-w-7xl pt-16 pb-24 px-4 mx-0 sm:mx-[40px]">
         <div className="max-w-4xl mx-auto space-y-8">
           <h1 className="text-4xl font-bold text-gray-900 text-center mb-12">Billing Plans</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -94,7 +93,6 @@ export default function Cards() {
           </div>
         </div>
       </div>
-    </div>
   )
 }
 
