@@ -1,13 +1,13 @@
 "use client"
 
 import type React from "react"
-
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Mail, Phone, Facebook, Twitter, Instagram, Linkedin } from "lucide-react"
+import { Mail, Phone } from "lucide-react"
+import { motion, useInView } from "framer-motion"
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -31,13 +31,28 @@ export default function ContactForm() {
     // Handle form submission here
   }
 
+  // Motion fade in/out on scroll
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { amount: 0.2 })
+
   return (
-    <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: inView ? 1 : 0 }}
+      transition={{ duration: 0.7, ease: "easeInOut" }}
+      className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* Left Column - Contact Information */}
-            <div className="bg-white p-8 lg:p-12">
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -60 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="bg-white p-8 lg:p-12"
+            >
               <div className="max-w-md">
                 <div className="mb-8">
                   <p className="text-black font-semibold text-sm tracking-wider uppercase mb-4">CONTACT US</p>
@@ -69,30 +84,16 @@ export default function ContactForm() {
                     </div>
                   </div>
                 </div>
-
-                {/* Social Media */}
-                <div>
-                  <p className="text-gray-600 mb-4">Reach out to us on:</p>
-                  <div className="flex space-x-4">
-                    <button className="w-10 h-10 bg-gray-100 hover:bg-black hover:text-white transition-colors rounded-lg flex items-center justify-center">
-                      <Facebook className="w-5 h-5" />
-                    </button>
-                    <button className="w-10 h-10 bg-gray-100 hover:bg-black hover:text-white transition-colors rounded-lg flex items-center justify-center">
-                      <Twitter className="w-5 h-5" />
-                    </button>
-                    <button className="w-10 h-10 bg-gray-100 hover:bg-black hover:text-white transition-colors rounded-lg flex items-center justify-center">
-                      <Instagram className="w-5 h-5" />
-                    </button>
-                    <button className="w-10 h-10 bg-gray-100 hover:bg-black hover:text-white transition-colors rounded-lg flex items-center justify-center">
-                      <Linkedin className="w-5 h-5" />
-                    </button>
-                  </div>
-                </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Column - Contact Form */}
-            <div className="bg-gray-50 p-8 lg:p-12">
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 60 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="bg-gray-50 p-8 lg:p-12"
+            >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="fullName" className="text-sm font-medium text-gray-700 mb-2 block">
@@ -176,10 +177,10 @@ export default function ContactForm() {
                   Send Message
                 </Button>
               </form>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
